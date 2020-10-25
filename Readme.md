@@ -6,3 +6,13 @@
 Published here: https://makadown.github.io/light-dark-mode/index.html
 
 ## Resources
+
+Guía para diseñar temas oscuros
+```
+https://blog.prototypr.io/how-to-design-a-dark-theme-for-your-android-app-3daeb264637
+```
+
+Hero Patters
+```
+https://www.heropatterns.com/
+```
