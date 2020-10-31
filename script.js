@@ -14,29 +14,19 @@ function imageMode(color) {
     image3.src = `img/undraw_conceptual_idea_${color}.svg`;
 }
 
-/** Set Dark mode style */
-function darkMode() {
-    nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
-    textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    toggleIcon.children[0].textContent = 'Dark Mode';
-    toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon');
-    imageMode('dark');
-}
-
-/** Set Light mode style */
-function lightMode() {
-    nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
-    toggleIcon.children[0].textContent = 'Light Mode';
-    toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun');
-    imageMode('light');
+function toggleDarkLightMode(isDark) {
+    nav.style.backgroundColor = isDark ? 'rgb(0 0 0 / 50%)' : 'rgb(255 255 255 / 50%)';
+    textBox.style.backgroundColor = isDark ? 'rgb(255 255 255 / 50%)' : 'rgb(0 0 0 / 50%)';
+    toggleIcon.children[0].textContent = isDark ? 'Dark Mode' : 'Light Mode';
+    toggleIcon.children[1].classList.replace(
+        isDark ? 'fa-sun' : 'fa-moon',
+        isDark ? 'fa-moon' : 'fa-sun');
+    imageMode((isDark ? 'dark' : 'light'));
 }
 
 function setMode(mode) {
-    if (mode === 'dark') {
-        toggleSwitch.checked = true;
-        darkMode();
-    } else { toggleSwitch.checked = false; lightMode(); }
+    toggleDarkLightMode(mode === 'dark')
+    toggleSwitch.checked = (mode === 'dark');
 }
 
 /** Switch Theme Dynamically */
